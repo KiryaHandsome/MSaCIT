@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Project
@@ -10,7 +11,7 @@ namespace Project
         {
             "+", "-", "*", "/", "%", "++", "==", "!=", "&&", ">=", "<=",
             "||", "|", "^", "~", "<<", ">>", "sizeof", ",", ";", "goto",
-            "break", "continue", "return", "delete"
+            "break", "continue", "return", "delete", "cout", "cin"
         };
 
         private static Dictionary<Regex, string> operators_regexes = new Dictionary<Regex, string>()
@@ -27,6 +28,7 @@ namespace Project
         };
 
         private static Regex variable_regex = new Regex("()\\b((?:const\\s*|unsigned\\s*|signed\\s*|static\\s*|void\\s*|short\\s*|long\\s*|char\\s*|int\\s*|float\\s*|double\\s*|bool\\s*)+)(?:\\s+\\*?\\*?\\s*)([a-zA-Z_][a-zA-Z0-9_]*)\\s*[\\[;,=)]");
+        private static Regex function_regex = new Regex("(\\w+)\\(.*\\)");
 
         public static Dictionary<string, int> FindOperators(string code)
         {
@@ -52,7 +54,15 @@ namespace Project
                     dict.Add(pair.Value, match.Count);
                 }
             }
-            return dict;
+            Match match_function = function_regex.Match(code);
+            while (match_function.Success)
+            {
+                string func_name = match_function.Groups[1].Value + "()";
+                if (!dict.ContainsKey(func_name)) dict.Add(func_name, 1);
+                else dict[func_name]++;
+                match_function = match_function.NextMatch();
+            }
+            return dict.OrderBy(p => p.Value).Reverse().ToDictionary(p => p.Key, p => p.Value);
         }
 
         public static Dictionary<string, int> FindOperands(string code)
@@ -67,7 +77,6 @@ namespace Project
                     if(cleanedLine.Contains(pair.Key)) dict[pair.Key] = pair.Value + 1;
                 }
                 Match match = variable_regex.Match(cleanedLine);
-                
                 while (match.Success)
                 {
                     string variable_name = match.Groups[3].Value;
@@ -76,7 +85,7 @@ namespace Project
                     match = match.NextMatch();
                 }
             }
-            return dict;
+            return dict.OrderBy(p => p.Value).Reverse().ToDictionary(p => p.Key, p => p.Value);
         }
 
         static string RemoveCommentsAndWhitespace(string line)

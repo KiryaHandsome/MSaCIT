@@ -21,12 +21,12 @@ namespace Project
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.volumeLabel = new System.Windows.Forms.Label();
+            this.lengthLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.dictionaryLabel = new System.Windows.Forms.Label();
-            this.lengthLabel = new System.Windows.Forms.Label();
-            this.volumeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOperators)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOperands)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -72,7 +72,7 @@ namespace Project
             this.dataGridViewOperators.RowHeadersWidth = 51;
             this.dataGridViewOperators.RowTemplate.Height = 29;
             this.dataGridViewOperators.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewOperators.Size = new System.Drawing.Size(300, 370);
+            this.dataGridViewOperators.Size = new System.Drawing.Size(300, 693);
             this.dataGridViewOperators.TabIndex = 4;
             // 
             // OperatorColumn
@@ -98,12 +98,12 @@ namespace Project
             this.dataGridViewOperands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.dataGridViewOperands.Location = new System.Drawing.Point(1106, 436);
+            this.dataGridViewOperands.Location = new System.Drawing.Point(1433, 41);
             this.dataGridViewOperands.Name = "dataGridViewOperands";
             this.dataGridViewOperands.RowHeadersWidth = 51;
             this.dataGridViewOperands.RowTemplate.Height = 29;
             this.dataGridViewOperands.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewOperands.Size = new System.Drawing.Size(300, 298);
+            this.dataGridViewOperands.Size = new System.Drawing.Size(300, 693);
             this.dataGridViewOperands.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
@@ -133,7 +133,7 @@ namespace Project
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dictionaryLabel, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1426, 288);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(40, 408);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -141,6 +141,36 @@ namespace Project
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(180, 215);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // volumeLabel
+            // 
+            this.volumeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.volumeLabel.AutoSize = true;
+            this.volumeLabel.Location = new System.Drawing.Point(126, 174);
+            this.volumeLabel.Name = "volumeLabel";
+            this.volumeLabel.Size = new System.Drawing.Size(17, 20);
+            this.volumeLabel.TabIndex = 5;
+            this.volumeLabel.Text = "0";
+            // 
+            // lengthLabel
+            // 
+            this.lengthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lengthLabel.AutoSize = true;
+            this.lengthLabel.Location = new System.Drawing.Point(126, 105);
+            this.lengthLabel.Name = "lengthLabel";
+            this.lengthLabel.Size = new System.Drawing.Size(17, 20);
+            this.lengthLabel.TabIndex = 4;
+            this.lengthLabel.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 174);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "V";
             // 
             // label1
             // 
@@ -162,16 +192,6 @@ namespace Project
             this.label2.TabIndex = 1;
             this.label2.Text = "η ";
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 174);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "V";
-            // 
             // dictionaryLabel
             // 
             this.dictionaryLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -182,29 +202,9 @@ namespace Project
             this.dictionaryLabel.TabIndex = 3;
             this.dictionaryLabel.Text = "0";
             // 
-            // lengthLabel
-            // 
-            this.lengthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lengthLabel.AutoSize = true;
-            this.lengthLabel.Location = new System.Drawing.Point(126, 105);
-            this.lengthLabel.Name = "lengthLabel";
-            this.lengthLabel.Size = new System.Drawing.Size(17, 20);
-            this.lengthLabel.TabIndex = 4;
-            this.lengthLabel.Text = "0";
-            // 
-            // volumeLabel
-            // 
-            this.volumeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.volumeLabel.AutoSize = true;
-            this.volumeLabel.Location = new System.Drawing.Point(126, 174);
-            this.volumeLabel.Name = "volumeLabel";
-            this.volumeLabel.Size = new System.Drawing.Size(17, 20);
-            this.volumeLabel.TabIndex = 5;
-            this.volumeLabel.Text = "0";
-            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1618, 767);
+            this.ClientSize = new System.Drawing.Size(1767, 767);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dataGridViewOperands);
             this.Controls.Add(this.dataGridViewOperators);
